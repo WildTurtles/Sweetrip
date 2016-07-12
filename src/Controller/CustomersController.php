@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Controller;
 
 use App\Controller\AppController;
@@ -8,16 +9,14 @@ use App\Controller\AppController;
  *
  * @property \App\Model\Table\CustomersTable $Customers
  */
-class CustomersController extends AppController
-{
+class CustomersController extends AppController {
 
     /**
      * Index method
      *
      * @return \Cake\Network\Response|null
      */
-    public function index()
-    {
+    public function index() {
         $customers = $this->paginate($this->Customers);
 
         $this->set(compact('customers'));
@@ -31,8 +30,7 @@ class CustomersController extends AppController
      * @return \Cake\Network\Response|null
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function view($id = null)
-    {
+    public function view($id = null) {
         $customer = $this->Customers->get($id, [
             'contain' => []
         ]);
@@ -46,16 +44,32 @@ class CustomersController extends AppController
      *
      * @return \Cake\Network\Response|void Redirects on successful add, renders view otherwise.
      */
-    public function add()
-    {
+//    public function add()
+//    {
+//        $customer = $this->Customers->newEntity();
+//        if ($this->request->is('post')) {
+//            $customer = $this->Customers->patchEntity($customer, $this->request->data);
+//            if ($this->Customers->save($customer)) {
+//                $this->Flash->success(__('The customer has been saved.'));
+//                return $this->redirect(['action' => 'index']);
+//            } else {
+//                $this->Flash->error(__('The customer could not be saved. Please, try again.'));
+//            }
+//        }
+//        $this->set(compact('customer'));
+//        $this->set('_serialize', ['customer']);
+//    }
+
+
+    public function add() {
         $customer = $this->Customers->newEntity();
         if ($this->request->is('post')) {
             $customer = $this->Customers->patchEntity($customer, $this->request->data);
             if ($this->Customers->save($customer)) {
-                $this->Flash->success(__('The customer has been saved.'));
-                return $this->redirect(['action' => 'index']);
+                $this->Flash->success(__('Merci, votre demande a bien été entregistrée.'));
+                //return $this->redirect(['action' => 'add']);
             } else {
-                $this->Flash->error(__('The customer could not be saved. Please, try again.'));
+                $this->Flash->error(__('Vos informations ne peuvent pas être sauvegardés, veuillez rééssayer'));
             }
         }
         $this->set(compact('customer'));
@@ -69,8 +83,7 @@ class CustomersController extends AppController
      * @return \Cake\Network\Response|void Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
-    public function edit($id = null)
-    {
+    public function edit($id = null) {
         $customer = $this->Customers->get($id, [
             'contain' => []
         ]);
@@ -94,8 +107,7 @@ class CustomersController extends AppController
      * @return \Cake\Network\Response|null Redirects to index.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function delete($id = null)
-    {
+    public function delete($id = null) {
         $this->request->allowMethod(['post', 'delete']);
         $customer = $this->Customers->get($id);
         if ($this->Customers->delete($customer)) {
@@ -105,4 +117,5 @@ class CustomersController extends AppController
         }
         return $this->redirect(['action' => 'index']);
     }
+
 }
