@@ -27,7 +27,7 @@ $cakeDescription = 'Sweetrip app';
 
   <?=
   $this->Html->meta(
-          'favicon-2.ico', './favicon-2.ico', ['type' => 'icon']
+          'favicon-2.ico', './favicon.ico', ['type' => 'icon']
   );
   ?>
 

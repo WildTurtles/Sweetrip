@@ -18,8 +18,8 @@ $this->layout = 'sweetrip';
 
   <?= $this->Form->create($customer) ?>
   <?php
-  echo $this->Form->input('email', array('placeholder' => __('courriel@domain.com')));
-  echo $this->Form->input('zipcode', array('placeholder' => __('86000')));
+  echo $this->Form->input('email', array('label' => 'Courriel', 'placeholder' => __('courriel@domain.com')));
+  echo $this->Form->input('zipcode', array('label' => 'Code Postal', 'placeholder' => __('86000')));
   ?>
 
   <p class="callout text-center"><small>Nous n'utiliserons pas vos informations pour l'envois de courriels indésirables.</small></p>
