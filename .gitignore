@@ -13,7 +13,7 @@
 /tmp/tests/*
 !/tmp/tests/empty
 /tmp/bake/*
-
+/vendor/*
 /logs/*
 !/logs/empty
 
