@@ -61,7 +61,7 @@ $this->layout = 'sweetrip';
        <?php echo $this->Html->image('check.svg', ['alt' => __('check'), 'class ' => 'hide-for-small, size-100']); ?>
    </div>
    <div class="media-object-section">
-    <p><?php echo __('Sweetrip vous propose un moyen simple et efficase de choisir le moyen de transport adapté à vos besoins.'); ?></p>
+    <p><?php echo __('Sweetrip vous propose un moyen simple et efficace de choisir le moyen de transport adapté à vos besoins.'); ?></p>
    </div>
   </div>
  </div>
